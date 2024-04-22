@@ -1,9 +1,20 @@
 import Assignments from "./Assignments.js";
+import Panel from "./Panel.js";
 
 export default {
-    components: { Assignments },
+    components: { Assignments, Panel },
     
     template: `
-        <assignments></assignments>
+        <div class="grid gap-6">
+            <assignments></assignments>
+
+            <panel>
+                <template v-slot:heading>
+                    Hi There
+                </template>
+
+                This is my default content.
+            </panel>
+        </div>
     `,
 }
