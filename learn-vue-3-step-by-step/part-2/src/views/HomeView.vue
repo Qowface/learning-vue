@@ -1,24 +1,14 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { useStorage } from '@/composables/useStorage'
 
-let food = ref(localStorage.getItem('food'))
-let age = ref(localStorage.getItem('age'))
+let food = useStorage('food', 'tacos')
+let age = useStorage('age', 10)
 
-watch(food, (val) => {
-  write('food', val)
-})
-
-watch(age, (val) => {
-  write('age', val)
-})
-
-function write(key, val) {
-  localStorage.setItem(key, val)
-}
+let obj = useStorage('obj', { one: 'one' })
 
 setTimeout(() => {
-  food.value = 'changed'
-}, 2000)
+  obj.value.one = 'CHANGED'
+}, 3000)
 </script>
 
 <template>
