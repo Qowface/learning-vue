@@ -1,9 +1,8 @@
 <script setup>
 import TeamMember from '@/components/Teams/TeamMember.vue'
+import { useTeamStore } from '@/stores/TeamStore'
 
-defineProps({
-  team: Object
-})
+let team = useTeamStore()
 </script>
 
 <template>
