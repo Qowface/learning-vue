@@ -22,16 +22,18 @@ let showModal = ref(false)
 
   <TeamFooter />
 
-  <TheModal :show="showModal" @close="showModal = false">
-    <template #default>
-      <p>Need to add a new member to your team?</p>
+  <Teleport to="body">
+    <TheModal :show="showModal" @close="showModal = false">
+      <template #default>
+        <p>Need to add a new member to your team?</p>
 
-      <form class="mt-6">
-        <div class="flex gap-2">
-          <input type="email" placeholder="Email Address..." class="flex-1" />
-          <button>Add</button>
-        </div>
-      </form>
-    </template>
-  </TheModal>
+        <form class="mt-6">
+          <div class="flex gap-2">
+            <input type="email" placeholder="Email Address..." class="flex-1" />
+            <button>Add</button>
+          </div>
+        </form>
+      </template>
+    </TheModal>
+  </Teleport>
 </template>
