@@ -5,14 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <Transition
-    enter-from-class="opacity-0 scale-125"
-    enter-to-class="opacity-100 scale-100"
-    enter-active-class="transition duration-300"
-    leave-active-class="transition duration-200"
-    leave-from-class="opacity-100 scale-100"
-    leave-to-class="opacity-0 scale-125"
-  >
+  <Transition name="modal">
     <div v-if="show" class="modal-mask">
       <div class="modal-container">
         <div>
@@ -63,5 +56,22 @@ defineProps({
 
 .modal-footer button:hover {
   background: #c8c8c8;
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  @apply scale-125;
+}
+
+.modal-enter-to,
+.modal-leave-from {
+  opacity: 100;
+  @apply scale-100;
 }
 </style>
